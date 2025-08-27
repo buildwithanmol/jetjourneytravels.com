@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Globe2, Mail, Phone } from "lucide-react";
+import { Globe2, Mail, MapPin, Phone, Pin } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner"; 
 import sendMail from "@/lib/actions/mail";
@@ -127,6 +127,12 @@ export default function Contact() {
               >
                 info@jetjourneytravels.com
               </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin />
+              <span className="text-blue-600">
+                  P.O.Box 337289
+              </span>
             </div>
           </div>
         </div>

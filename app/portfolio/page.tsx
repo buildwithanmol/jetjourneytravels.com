@@ -3,7 +3,16 @@ import "react-medium-image-zoom/dist/styles.css";
 
 export default async function Portfolio() {
   const items = [
-    "/portfolio/1.jpg",
+    "/portfolio/1 (1).jpg",
+    "/portfolio/1 (1).webp",
+    "/portfolio/1 (2).jpg",
+    "/portfolio/1 (3).jpg",
+    "/portfolio/1 (4).jpg",
+    "/portfolio/1 (5).jpg",
+    "/portfolio/1 (6).jpg",
+    "/portfolio/1 (7).jpg",
+    "/portfolio/1 (8).jpg"
+    
   ];
   return (
     <section>
