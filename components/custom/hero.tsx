@@ -13,7 +13,7 @@ export function Hero() {
           with care.
         </p>
         <Button variant={"main"} className="max-w-min">
-          <Link href={"tel:"} className="flex items-center gap-2 "><Phone /> Get a Quote</Link>
+          <Link href={"https://wa.me/+971561628595"} className="flex items-center gap-2 "><Phone /> Get a Quote</Link>
         </Button>
         <Image
           src={"/addons/flying-plane.png"}

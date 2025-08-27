@@ -59,8 +59,10 @@ export function Header() {
       <Menus styles="md:flex hidden font-light gap-5" />
 
       <div className="md:block hidden">
-        <Button variant={"main"} className="cursor-pointer">
-          Book Now
+        <Button asChild variant={"main"} className="cursor-pointer">
+          <Link href="https://wa.me/+971561628595">
+                  Book Now
+                </Link>
         </Button>
       </div>
 
@@ -75,8 +77,10 @@ export function Header() {
             </SheetTitle>
             <div>
               <Menus styles="flex flex-col gap-4 mb-5" />
-              <Button variant={"main"} className="cursor-pointer">
-                Book Now
+              <Button asChild variant={"main"} className="cursor-pointer">
+                <Link href="https://wa.me/+971561628595">
+                  Book Now
+                </Link>
               </Button>
             </div>
           </SheetHeader>

@@ -22,7 +22,7 @@ export default async function About() {
           alt="flying-plane"
           className="absolute bottom-0 right-0 hidden md:block"
         />
-        <p className="font-semibold text-lg mb-2 text-center">
+        <p className="font-semibold md:text-2xl text-lg mb-2 text-center">
           Your Trusted Travel Partner – Based in Dubai, Serving the World.
         </p>
         <p className="max-w-2xl text-center md:text-md text-sm font-mono">
@@ -39,28 +39,38 @@ export default async function About() {
         className="rounded-xl w-full object-contain my-10"
       />
 
-      <div className="space-y-5">
+      <div className="space-y-2">
         <h1 className="md:text-xl md:text-start font-semibold text-lg md:mb-5 mb-2 text-center">
           {" "}
           What is our <span className="text-primary">story</span> ?{" "}
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla quas
-          excepturi hic delectus accusantium, ad porro repudiandae perspiciatis
-          sed officia labore? Nesciunt amet accusamus, eaque inventore sint
-          sequi autem, ratione nobis illo possimus tenetur labore. Sequi dicta
-          quis distinctio quo obcaecati quas minus vel perferendis modi
-          voluptatem beatae, nemo nisi dignissimos quam rem amet vero illum
-          dolorem optio magni ad.
+          Every great journey begins with a dream — a dream to explore, to connect, and to discover. At Jet Journey Travels LLC, based in the heart of Dubai, we bring those dreams to life.
+          Dubai is a city that bridges the world — where East meets West, tradition meets innovation, and people from every culture come together. Inspired by this spirit, we set out with a mission: to create travel experiences that go beyond itineraries and become stories worth telling.
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla quas
-          excepturi hic delectus accusantium, ad porro repudiandae perspiciatis
-          sed officia labore? Nesciunt amet accusamus, eaque inventore sint
-          sequi autem, ratione nobis illo possimus tenetur labore. Sequi dicta
-          quis distinctio quo obcaecati quas minus vel perferendis modi
-          voluptatem beatae, nemo nisi dignissimos quam rem amet vero illum
-          dolorem optio magni ad.
+         <h1 className="text-lg font-bold">
+          Our <span className="text-primary">Promise</span>
+        </h1>
+        <p className="">
+          When you travel with Jet Journey Travels LLC, you don’t just visit destinations — 
+          you live them. Every journey is carefully curated to inspire, delight, and 
+          leave you with unforgettable stories.
+        </p>
+        <h1 className="text-lg font-bold">
+          Our <span className="text-primary">Mission</span>
+        </h1>
+        <p className="">
+          To turn travel into a journey of discovery, connection, and joy — 
+          one unforgettable experience at a time.
+        </p>
+        <h1 className="text-lg font-bold">
+          Our <span className="text-primary">Vision</span>
+        </h1>
+        <p className="">
+          To be more than a travel agency. We aspire to be your trusted companion, 
+          crafting journeys that reflect your passions, personality, and dreams. 
+          Whether it’s a luxury escape, a cultural adventure, or a family getaway, 
+          we ensure every journey is as unique as you are.
         </p>
       </div>
     </section>

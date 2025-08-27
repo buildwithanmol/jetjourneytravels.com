@@ -10,7 +10,7 @@ export default async function Home() {
       <HomeAbout />
       <WhyChooseUs />
       <HomeServices />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </section>
   );
 }

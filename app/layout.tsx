@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/custom/header";
 import { Footer } from "@/components/custom/footer";
+import { Toaster } from "sonner";
 
 const primaryFont = localFont({
   src: "../public/fonts/typeunion-yoshida-sans-regular.otf",
@@ -36,6 +37,7 @@ export default function RootLayout({
         </nav>
         <main>{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

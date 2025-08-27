@@ -3,14 +3,6 @@ import "react-medium-image-zoom/dist/styles.css";
 
 export default async function Portfolio() {
   const items = [
-    "/portfolio/3.jpg",
-    "/portfolio/1.jpg",
-    "/portfolio/2.jpg",
-    "/portfolio/1.jpg",
-    "/portfolio/3.jpg",
-    "/portfolio/2.jpg",
-    "/portfolio/2.jpg",
-    "/portfolio/3.jpg",
     "/portfolio/1.jpg",
   ];
   return (

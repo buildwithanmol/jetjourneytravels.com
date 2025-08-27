@@ -1,22 +1,23 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function HomeServices() {
   const services = [
     {
       title: "Hotel Booking",
-      img: "/background/service-air.png",
-      rotation: "md:-rotate-6 md:mt-6",
+      img: "/background/hotels.jpg",
+      rotation: "md:-rotate-6 md:mt-6 w-full",
     },
     {
       title: "Air Ticketing",
-      img: "/background/service-air.png",
-      rotation: "rotate-0",
+      img: "/background/flights.jpeg",
+      rotation: "rotate-0 w-full",
     },
     {
       title: "Corporate Travel",
-      img: "/background/service-air.png",
-      rotation: "md:rotate-6 md:mt-6",
+      img: "/background/corporate.jpg",
+      rotation: "md:rotate-6 md:mt-6 w-full",
     },
   ];
 
@@ -39,14 +40,16 @@ export function HomeServices() {
                 width={350}
                 height={350}
                 alt={service.title}
-                className="object-cover w-full h-auto"
+                className="object-cover aspect-square rounded-tr-[60px] rounded-bl-[60px] w-full h-auto"
               />
             </div>
 
             {/* Title */}
             <div className="flex items-center gap-2 mt-[-20px] px-6 py-2 rounded-lg text-white font-semibold text-lg shadow-md bg-gradient-to-r from-primary to-secondary">
-              {service.title}{" "}
+              <Link href="/contact"  className="flex items-center gap-2">
+                {service.title}{" "}
               <ArrowRight className="group-hover:translate-x-2 transition-all" />
+              </Link>
             </div>
           </div>
         ))}

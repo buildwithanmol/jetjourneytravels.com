@@ -10,21 +10,26 @@ export default async function Services() {
       <ServiceCard
         image="/services/air-ticketing.png"
         title="Air Ticketing"
-        description="Lorem ipsum dolor sit amet consectetur. Netus ut in netus adipiscing cursus. Morbi risus tellus placerat pulvinar augue dui. Id velit congue neque libero tortor enim egestas cursus. Euismod nulla sed convallis duis."
-        href="mailto:"
+        description="Get access to competitive fares and real-time availability on domestic and international flights.
+Whether economy, business, or first class, we secure the best routes and pricing—fast,
+flexible, and fully supported. " 
+        href="https://wa.me/+971561628595?text=Hi%2C%20I%27m%20looking%20for%20an%20air%20ticketing%20service"
       />
       <ServiceCard
         image="/services/hotel-booking.png"
         title="Hotel Booking"
-        description="Lorem ipsum dolor sit amet consectetur. Netus ut in netus adipiscing cursus. Morbi risus tellus placerat pulvinar augue dui. Id velit congue neque libero tortor enim egestas cursus. Euismod nulla sed convallis duis."
-        href="mailto:"
+        description="We partner with trusted hotels worldwide to provide the perfect stay—luxury resorts, business
+accommodations, or budget-friendly options. Comfort and convenience, wherever you go. "
+        href="https://wa.me/+971561628595?text=Hi%2C%20I%27m%20looking%20for%20a%20hotel%20booking%20service"
         reverse
       />
       <ServiceCard
         image="/services/corporate-travel.png"
         title="Corporate Travel"
-        description="Lorem ipsum dolor sit amet consectetur. Netus ut in netus adipiscing cursus. Morbi risus tellus placerat pulvinar augue dui. Id velit congue neque libero tortor enim egestas cursus. Euismod nulla sed convallis duis."
-        href="mailto:"
+        description="Efficient, cost-effective, and policy-compliant business travel management. We handle
+          bookings, itineraries, group travel, and reporting—so your team stays focused on business, not
+          logistics. "
+        href="https://wa.me/+971561628595?text=Hi%2C%20I%27m%20looking%20for%20a%20corporate%20travel%20service"
       />
     </section>
   );
