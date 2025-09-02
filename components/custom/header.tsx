@@ -34,6 +34,10 @@ function Menus({ styles }: { styles: string }) {
           name: "Services",
           href: "/services",
         },
+        {
+          name: "Blog",
+          href: "/blog",
+        },
       ].map((item) => {
         return (
           <Link

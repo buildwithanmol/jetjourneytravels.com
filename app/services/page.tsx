@@ -1,8 +1,29 @@
+import { AirwaysMarquee } from "@/components/custom/airways-marquee";
+import { CorporateTravelSection } from "@/components/custom/corporate-travel-service";
+import { HotelsService } from "@/components/custom/hotels-service";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import fs from "node:fs";
+import path from "node:path";
 
 export default async function Services() {
+  const logos_dir = path.join(process.cwd(), "public", "logos");
+  const hotels_dir = path.join(process.cwd(), "public", "hotels");
+  const hotels_images_dir = path.join(process.cwd(), "public", "hotels-images");
+  const files = fs
+    .readdirSync(logos_dir)
+    .filter((file) => /\.(png|jpg|jpeg|svg)$/.test(file));
+  const hotels_data = fs
+    .readdirSync(hotels_dir)
+    .filter((file) => /\.(png|jpg|jpeg|svg)$/.test(file));
+  const hotels_images_data = fs
+    .readdirSync(hotels_images_dir)
+    .filter((file) => /\.(png|jpg|jpeg|svg|avif)$/.test(file));
+  const files_data = JSON.stringify(files);
+  const hotels_data_json = JSON.stringify(hotels_data);
+  const hotels_images_json = JSON.stringify(hotels_images_data);
+
   return (
     <section className="space-y-10">
       <h1 className="text-2xl text-center">Services</h1>
@@ -12,9 +33,10 @@ export default async function Services() {
         title="Air Ticketing"
         description="Get access to competitive fares and real-time availability on domestic and international flights.
 Whether economy, business, or first class, we secure the best routes and pricing—fast,
-flexible, and fully supported. " 
+flexible, and fully supported. "
         href="https://wa.me/+971561628595?text=Hi%2C%20I%27m%20looking%20for%20an%20air%20ticketing%20service"
       />
+      <AirwaysMarquee files={files_data} />
       <ServiceCard
         image="/services/hotel-booking.png"
         title="Hotel Booking"
@@ -23,6 +45,9 @@ accommodations, or budget-friendly options. Comfort and convenience, wherever yo
         href="https://wa.me/+971561628595?text=Hi%2C%20I%27m%20looking%20for%20a%20hotel%20booking%20service"
         reverse
       />
+
+      <HotelsService files={hotels_data_json} hotels={hotels_images_json} />
+
       <ServiceCard
         image="/services/corporate-travel.png"
         title="Corporate Travel"
@@ -31,6 +56,8 @@ accommodations, or budget-friendly options. Comfort and convenience, wherever yo
           logistics. "
         href="https://wa.me/+971561628595?text=Hi%2C%20I%27m%20looking%20for%20a%20corporate%20travel%20service"
       />
+
+      <CorporateTravelSection />
     </section>
   );
 }
