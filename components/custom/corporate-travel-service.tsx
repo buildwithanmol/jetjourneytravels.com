@@ -2,6 +2,7 @@
 
 import { Briefcase, Globe2, Headphones, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function CorporateTravelSection() {
   return (
@@ -45,8 +46,11 @@ export function CorporateTravelSection() {
           />
         </div>
 
-        <Button className="px-6 py-3 text-lg rounded-full bg-blue-600 text-white hover:bg-blue-700">
-          Plan Your Next Business Trip
+        <Button
+          asChild
+          className="px-6 py-3 text-lg rounded-full bg-blue-600 text-white hover:bg-blue-700"
+        >
+          <Link href="/contact">Plan Your Next Business Trip</Link>
         </Button>
       </div>
     </section>

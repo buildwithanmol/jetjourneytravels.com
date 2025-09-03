@@ -20,7 +20,7 @@ export default async function Services() {
   const hotels_images_data = fs
     .readdirSync(hotels_images_dir)
     .filter((file) => /\.(png|jpg|jpeg|svg|avif)$/.test(file));
-  const files_data = JSON.stringify(files);
+  const files_data = JSON.stringify(files); 
   const hotels_data_json = JSON.stringify(hotels_data);
   const hotels_images_json = JSON.stringify(hotels_images_data);
 
