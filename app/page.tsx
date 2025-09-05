@@ -26,6 +26,7 @@ export default async function Home() {
   const hotels_data_json = JSON.stringify(hotels_data);
   const hotels_images_json = JSON.stringify(hotels_images_data);
 
+  
   return (
     <section className="space-y-10 md:space-y-20">
       <Hero />
