@@ -15,10 +15,10 @@ export default async function Home() {
   
   const files = fs
     .readdirSync(logos_dir)
-    .filter((file) => /\.(png|jpg|jpeg|svg)$/.test(file));
+    .filter((file) => /\.(png|jpg|jpeg|svg|avif)$/.test(file));
   const hotels_data = fs
     .readdirSync(hotels_dir)
-    .filter((file) => /\.(png|jpg|jpeg|svg)$/.test(file));
+    .filter((file) => /\.(png|jpg|jpeg|svg|avif)$/.test(file));
   const hotels_images_data = fs
     .readdirSync(hotels_images_dir)
     .filter((file) => /\.(png|jpg|jpeg|svg|avif)$/.test(file));

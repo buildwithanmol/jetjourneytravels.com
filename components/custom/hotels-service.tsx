@@ -3,6 +3,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { cn } from "@/lib/utils";
 
 export function HotelsService({
   files,
@@ -16,7 +17,7 @@ export function HotelsService({
     <div>
       <h1 className="font-semibold text-xl pb-4"> Trusted Hotel Partners: </h1>
       <Marquee>
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center justify-center space-x-10">
           {fileArray.map((file, index) => (
             <div key={index} className="py-2">
               <Image
@@ -24,7 +25,7 @@ export function HotelsService({
                 height={120}
                 src={`/hotels/${file}`}
                 alt={file}
-                className="grayscale-0 cursor-pointer hover:grayscale aspect-square object-contain"
+                className={cn("grayscale-0 cursor-pointer hover:grayscale aspect-square object-contain", file.includes("GlobalHotelAllianceLogo.png") && "ml-10")}
               />
             </div>
           ))}
