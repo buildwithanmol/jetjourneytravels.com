@@ -7,6 +7,8 @@ import fs from "node:fs";
 import { AirwaysMarquee } from "@/components/custom/airways-marquee";
 import { HotelsService } from "@/components/custom/hotels-service";
 import { CorporateTravelSection } from "@/components/custom/corporate-travel-service";
+import Link from "next/link";
+import { Mail, Phone } from "lucide-react";
 
 export default async function Home() {
   const logos_dir = path.join(process.cwd(), "public", "logos");
@@ -29,10 +31,14 @@ export default async function Home() {
   
   return (
     <section className="space-y-10 md:space-y-20">
+      {/* <div className="flex items-center justify-between">
+        <Link href={"#"}> <Phone /> +971 </Link>
+        <Link href={"#"}> <Mail /> info@jetjourneytravels.com </Link>
+      </div> */}
       <Hero />
       <AirwaysMarquee files={files_data} />      
       <HomeAbout />
-      <HotelsService files={hotels_data_json} hotels={hotels_images_json} />
+      <HotelsService files={hotels_data_json} hotels={hotels_images_json} view={false} />
       <WhyChooseUs />
       <HomeServices />
       <CorporateTravelSection />

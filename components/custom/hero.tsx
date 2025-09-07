@@ -6,7 +6,7 @@ import Image from "next/image";
 export function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  gap-10 md:gap-5">
-      <div className="space-y-3 flex flex-col justify-center">
+      <div className="space-y-3 flex flex-col justify-center relative">
         <h1 className="md:text-4xl text-2xl font-bold "> Your Journey, Our Experties. </h1>
         <p className="font-mono text-sm md:text-lg md:max-w-sm">
           Seamless bookings for flights, hotels, and corporate travel crafted
@@ -20,6 +20,7 @@ export function Hero() {
           width={400}
           height={400}
           alt="flying-plane"
+          className="bottom-16 absolute"
         />
       </div>
       <div>

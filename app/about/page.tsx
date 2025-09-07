@@ -45,33 +45,47 @@ export default async function About() {
           What is our <span className="text-primary">story</span> ?{" "}
         </h1>
         <p>
-          Every great journey begins with a dream — a dream to explore, to connect, and to discover. At Jet Journey Travels LLC, based in the heart of Dubai, we bring those dreams to life.
-          Dubai is a city that bridges the world — where East meets West, tradition meets innovation, and people from every culture come together. Inspired by this spirit, we set out with a mission: to create travel experiences that go beyond itineraries and become stories worth telling.
+          Every great journey begins with a dream — a dream to explore, to
+          connect, and to discover. At Jet Journey Travels LLC, based in the
+          heart of Dubai, we bring those dreams to life. Dubai is a city that
+          bridges the world — where East meets West, tradition meets innovation,
+          and people from every culture come together. Inspired by this spirit,
+          we set out with a mission: to create travel experiences that go beyond
+          itineraries and become stories worth telling.
         </p>
-         <h1 className="text-lg font-bold">
-          Our <span className="text-primary">Promise</span>
-        </h1>
-        <p className="">
-          When you travel with Jet Journey Travels LLC, you don’t just visit destinations — 
-          you live them. Every journey is carefully curated to inspire, delight, and 
-          leave you with unforgettable stories.
-        </p>
-        <h1 className="text-lg font-bold">
-          Our <span className="text-primary">Mission</span>
-        </h1>
-        <p className="">
-          To turn travel into a journey of discovery, connection, and joy — 
-          one unforgettable experience at a time.
-        </p>
-        <h1 className="text-lg font-bold">
-          Our <span className="text-primary">Vision</span>
-        </h1>
-        <p className="">
-          To be more than a travel agency. We aspire to be your trusted companion, 
-          crafting journeys that reflect your passions, personality, and dreams. 
-          Whether it’s a luxury escape, a cultural adventure, or a family getaway, 
-          we ensure every journey is as unique as you are.
-        </p>
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-10 mt-5">
+          <div>
+            <h1 className="text-lg font-bold">
+              Our <span className="text-primary">Promise</span>
+            </h1>
+            <p className="">
+              When you travel with Jet Journey Travels LLC, you don’t just visit
+              destinations — you live them. Every journey is carefully curated
+              to inspire, delight, and leave you with unforgettable stories.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-lg font-bold">
+              Our <span className="text-primary">Mission</span>
+            </h1>
+            <p className="">
+              To turn travel into a journey of discovery, connection, and joy —
+              one unforgettable experience at a time.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-lg font-bold">
+              Our <span className="text-primary">Vision</span>
+            </h1>
+            <p className="">
+              To be more than a travel agency. We aspire to be your trusted
+              companion, crafting journeys that reflect your passions,
+              personality, and dreams. Whether it’s a luxury escape, a cultural
+              adventure, or a family getaway, we ensure every journey is as
+              unique as you are.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

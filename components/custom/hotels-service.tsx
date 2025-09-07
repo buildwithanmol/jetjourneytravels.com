@@ -8,9 +8,11 @@ import { cn } from "@/lib/utils";
 export function HotelsService({
   files,
   hotels,
+  view = true
 }: {
   files: string;
   hotels: string;
+  view?: boolean
 }) {
   const fileArray = JSON.parse(files) as string[];
   return (
@@ -31,7 +33,7 @@ export function HotelsService({
           ))}
         </div>
       </Marquee>
-      <div className="columns-2 md:columns-3 pt-10 gap-4">
+      <div className={cn( view ? "columns-2 md:columns-3 pt-10 gap-4" : "hidden")}>
         {JSON.parse(hotels).map((file: string, index: number) => (
           <div key={index} className="mb-4 break-inside-avoid">
             <Zoom>

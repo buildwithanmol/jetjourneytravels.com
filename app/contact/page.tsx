@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Globe2, Mail, MapPin, Phone, Pin } from "lucide-react";
 import Link from "next/link";
-import { toast } from "sonner"; 
+import { toast } from "sonner";
 import sendMail from "@/lib/actions/mail";
 
 export default function Contact() {
@@ -71,38 +71,55 @@ export default function Contact() {
 
           {/* Form */}
           <form className="space-y-4" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Name *"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Phone number *"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-
+            <div className="grid grid-cols-2 gap-3">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Name *"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email *"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone *"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+              <input
+                type="text"
+                name="enquiry"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Inquiry / Message"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              />
+            </div>
             <Button className="w-full" variant="main" disabled={loading}>
               {loading ? "Sending..." : "Submit"}
             </Button>
           </form>
 
           {/* Contact Info */}
-          <div className="flex flex-wrap gap-8 mt-8 text-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 text-sm">
+            <div className="flex items-center gap-2">
+              <MapPin />
+              <span className="text-blue-600">
+                P.O.Box 337289, Al Quoz, Dubai-U.A.E
+              </span>
+            </div>
             <div className="flex items-center gap-2">
               <Phone />
               <a
@@ -114,12 +131,6 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Globe2 />
-              <Link href="/" className="text-secondary">
-                jetjourneytravels.com
-              </Link>
-            </div>
-            <div className="flex items-center gap-2">
               <Mail />
               <a
                 href="mailto:info@jetjourneytravels.com"
@@ -129,10 +140,10 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin />
-              <span className="text-blue-600">
-                  P.O.Box 337289
-              </span>
+              <Globe2 />
+              <Link href="/" className="text-secondary">
+                jetjourneytravels.com
+              </Link>
             </div>
           </div>
         </div>
