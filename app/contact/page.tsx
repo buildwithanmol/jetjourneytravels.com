@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Globe2, Mail, MapPin, Phone, Pin } from "lucide-react";
+import { Globe2, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { toast } from "sonner"; 
+import Image from "next/image";
+import { toast } from "sonner";
 import sendMail from "@/lib/actions/mail";
 
 export default function Contact() {
@@ -12,11 +13,14 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
+    message: "",
   });
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -24,8 +28,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate required fields
-    if (!formData.name || !formData.phone) {
+    if (!formData.name || !formData.phone || !formData.message) {
       toast.error("Please fill in all required fields.");
       return;
     }
@@ -38,15 +41,16 @@ export default function Contact() {
         body: `
           <p>A new request for travel service has been initiated.</p>
           <ul>
-            <li>Name: ${formData.name}</li>
-            <li>Email: ${formData.email || "N/A"}</li>
-            <li>Phone: ${formData.phone}</li>
+            <li><strong>Name:</strong> ${formData.name}</li>
+            <li><strong>Email:</strong> ${formData.email || "N/A"}</li>
+            <li><strong>Phone:</strong> ${formData.phone}</li>
+            <li><strong>Message:</strong> ${formData.message}</li>
           </ul>
         `,
       });
 
       toast.success("Your request has been sent successfully!");
-      setFormData({ name: "", email: "", phone: "" });
+      setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error(error);
       toast.error("Failed to send the request. Please try again.");
@@ -56,20 +60,19 @@ export default function Contact() {
   };
 
   return (
-    <section>
-      <h1 className="text-2xl md:text-3xl text-center">Contact</h1>
-      <div className="bg-white rounded-[2rem] overflow-hidden border mt-5 md:mt-10 flex flex-col md:flex-row">
-        {/* Left div - Form */}
-        <div className="w-full md:w-2/3 p-8 md:p-12">
-          {/* Heading */}
-          <h2 className="text-2xl md:text-3xl font-black mb-4">
+    <section className="py-12">
+      <h1 className="text-2xl md:text-3xl font-bold text-center">Contact Us</h1>
+
+      <div className="mt-8 md:mt-12 bg-white rounded-2xl overflow-hidden border shadow-sm flex flex-col md:flex-row max-w-screen-lg mx-auto">
+        {/* Left - Form */}
+        <div className="w-full md:w-2/3 p-6 md:p-12 flex flex-col justify-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">
             Get in <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-gray-600 mb-8">
-            Send us an email and we'll get back to you as soon as possible.
+          <p className="text-gray-600  mb-8">
+            Fill in the form below and we’ll respond as soon as possible.
           </p>
 
-          {/* Form */}
           <form className="space-y-4" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -77,15 +80,15 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               placeholder="Name *"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
             />
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="Email *"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
             />
             <input
               type="tel"
@@ -93,52 +96,65 @@ export default function Contact() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Phone number *"
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
+            />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your message *"
+              rows={4}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none resize-none"
             />
 
-            <Button className="w-full" variant="main" disabled={loading}>
+            <Button className="w-full hover:bg-primary" variant="main" disabled={loading}>
               {loading ? "Sending..." : "Submit"}
             </Button>
           </form>
 
           {/* Contact Info */}
-          <div className="flex flex-wrap gap-8 mt-8 text-sm">
+          <div className="flex flex-wrap gap-6 mt-10 text-sm text-gray-700">
             <div className="flex items-center gap-2">
-              <Phone />
+              <Phone className="w-4 h-4 text-primary" />
               <a
                 href="https://wa.me/+971561628595"
                 target="_blank"
-                className="text-blue-600"
+                className="hover:underline"
               >
                 +971 56-1628595
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Globe2 />
-              <Link href="/" className="text-secondary">
+              <Globe2 className="w-4 h-4 text-primary" />
+              <Link href="/" className="hover:underline">
                 jetjourneytravels.com
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <Mail />
+              <Mail className="w-4 h-4 text-primary" />
               <a
                 href="mailto:info@jetjourneytravels.com"
-                className="text-blue-600"
+                className="hover:underline"
               >
                 info@jetjourneytravels.com
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin />
-              <span className="text-blue-600">
-                  P.O.Box 337289
-              </span>
+              <MapPin className="w-4 h-4 text-primary" />
+              <span>P.O.Box 337289</span>
             </div>
           </div>
         </div>
 
-        {/* Right div - Blue Accent */}
-        <div className="w-full md:w-1/3 bg-gradient-to-br from-primary to-secondary"></div>
+        {/* Right - Image */}
+        <div className="relative w-full md:w-1/3 h-64 md:h-auto hidden md:flex">
+          <Image
+            src="/portfolio/1 (2).jpg"
+            alt="Contact Us"
+            fill
+            className="object-cover"
+          />
+        </div>
       </div>
     </section>
   );

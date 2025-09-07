@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2  gap-10 md:gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2  gap-10 md:gap-5 py-12">
       <div className="space-y-3 flex flex-col justify-center">
         <h1 className="md:text-4xl text-2xl font-bold "> Your Journey, Our Experties. </h1>
         <p className="font-mono text-sm md:text-lg md:max-w-sm">
