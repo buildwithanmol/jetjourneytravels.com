@@ -25,8 +25,8 @@ export default async function Services() {
   const hotels_images_json = JSON.stringify(hotels_images_data);
 
   return (
-    <section className="space-y-10">
-      <h1 className="text-2xl text-center">Services</h1>
+    <section className="space-y-10 py-12">
+      <h1 className="text-2xl md:text-3xl text-center font-bold">Services</h1>
 
       <ServiceCard
         image="/services/air-ticketing.png"

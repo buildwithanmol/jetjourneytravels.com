@@ -15,8 +15,8 @@ export default async function Portfolio() {
     
   ];
   return (
-    <section>
-      <h1 className="text-2xl md:text-3xl mb-5 md:mb-10 text-center"> Portfolio </h1>
+    <section className="py-12">
+      <h1 className="text-2xl md:text-3xl mb-5 md:mb-10 text-center font-bold"> Portfolio </h1>
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 p-4">
         {items.map((src, idx) => (
           <div key={idx} className="mb-4 break-inside-avoid">

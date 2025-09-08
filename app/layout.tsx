@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={`max-w-screen-xl md:px-16 px-5 mx-auto ${primaryFont.className} ${inter.variable} antialiased`}
       >
-        <nav className="py-10">
+        <nav className="">
           <Header />
         </nav>
         <main>{children}</main>
