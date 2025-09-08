@@ -28,8 +28,14 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone || !formData.message) {
+    // ✅ Validation
+    if (!formData.name || !formData.phone) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast.error("Please enter a valid email address.");
       return;
     }
 
@@ -39,7 +45,7 @@ export default function Contact() {
         email: ["info@jetjourneytravels.com"],
         subject: "Service Request - Jet Journey Travels LLC",
         body: `
-          <p>A new request for travel service has been initiated.</p>
+          <p>A new travel service request has been submitted:</p>
           <ul>
             <li><strong>Name:</strong> ${formData.name}</li>
             <li><strong>Email:</strong> ${formData.email || "N/A"}</li>
@@ -49,11 +55,11 @@ export default function Contact() {
         `,
       });
 
-      toast.success("Your request has been sent successfully!");
+      toast.success("Thank you! Your request has been sent successfully.");
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error(error);
-      toast.error("Failed to send the request. Please try again.");
+      toast.error("Failed to send your request. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -81,39 +87,53 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="Name *"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
+              required
             />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email *"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
-            />
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Phone number *"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
-            />
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone number *"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
+                required
+              />
+            </div>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Your message *"
+              placeholder="Inquiry / Message"
               rows={4}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none resize-none"
+              required
             />
 
-            <Button className="w-full hover:bg-primary" variant="main" disabled={loading}>
+            <Button
+              className="w-full hover:bg-primary"
+              variant="main"
+              disabled={loading}
+              type="submit"
+            >
               {loading ? "Sending..." : "Submit"}
             </Button>
           </form>
 
           {/* Contact Info */}
-          <div className="flex flex-wrap gap-6 mt-10 text-sm text-gray-700">
+          <div className="grid grid-cols-2 gap-6 mt-10 text-sm text-gray-700">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary" />
+              <span>P.O.Box 337289, Al Quoz, Dubai</span>
+            </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-primary" />
               <a
@@ -125,12 +145,6 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Globe2 className="w-4 h-4 text-primary" />
-              <Link href="/" className="hover:underline">
-                jetjourneytravels.com
-              </Link>
-            </div>
-            <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-primary" />
               <a
                 href="mailto:info@jetjourneytravels.com"
@@ -140,8 +154,10 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span>P.O.Box 337289</span>
+              <Globe2 className="w-4 h-4 text-primary" />
+              <Link href="/" className="hover:underline">
+                jetjourneytravels.com
+              </Link>
             </div>
           </div>
         </div>

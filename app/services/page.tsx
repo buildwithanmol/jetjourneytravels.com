@@ -88,8 +88,8 @@ function ServiceCard({
         <Image
           src={image}
           alt={title}
-          width={500}
-          height={500}
+          width={800}
+          height={800}
           className="rounded-xl w-full object-contain aspect-square"
         />
       </div>

@@ -26,7 +26,7 @@ export function CorporateTravelSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
           <FeatureCard
             icon={<Plane size={50} />}
-            title="Worker Deployment"
+            title="Workforce Mobility Solutions"
             description="Streamlined planning for overseas workforce travel."
           />
           <FeatureCard

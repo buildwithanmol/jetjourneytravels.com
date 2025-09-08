@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -12,8 +13,9 @@ import { AlignRight } from "lucide-react";
 import { FaFacebookSquare, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+import { Dispatch, SetStateAction, useState } from "react";
 
-function Menus({ styles }: { styles: string }) {
+function Menus({ styles, mobile = false, setOpen }: { styles: string, mobile?: boolean, setOpen?: Dispatch<SetStateAction<boolean>> }) {
   return (
     <nav className={styles}>
       {[
@@ -25,6 +27,11 @@ function Menus({ styles }: { styles: string }) {
         { name: "Blog", href: "/blog" },
       ].map((item) => (
         <Link
+        onClick={() => {
+          if (mobile && setOpen) {
+            setOpen(false);
+          }
+        }}
           key={item.name}
           href={item.href}
           className="border-b-2 border-transparent hover:border-secondary transition-colors duration-300"
@@ -37,12 +44,14 @@ function Menus({ styles }: { styles: string }) {
 }
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       {/* Top bar */}
       <div className="hidden md:flex justify-between items-center py-3 px-6 text-sm md:text-base border-b">
         <div className="flex items-center gap-4 text-primary">
-          <Link href="https://www.instagram.com/jetjourneytravels/">
+          {/* <Link href="https://www.instagram.com/jetjourneytravels/">
             <FaSquareInstagram className="w-5 h-5 hover:text-secondary transition" />
           </Link>
           <Link href="https://www.facebook.com/jetjourneytravels/">
@@ -50,7 +59,7 @@ export function Header() {
           </Link>
           <Link href="https://www.linkedin.com/company/jetjourneytravels/">
             <FaLinkedin className="w-5 h-5 hover:text-secondary transition" />
-          </Link>
+          </Link> */}
         </div>
         <div className="flex items-center gap-6">
           <Link
@@ -65,7 +74,7 @@ export function Header() {
             className="flex items-center gap-2 hover:text-secondary transition"
           >
             <FaPhoneAlt className="w-5 h-5 text-primary" />
-            +971561628595
+            +971 561628595
           </Link>
         </div>
       </div>
@@ -97,7 +106,7 @@ export function Header() {
 
         {/* Mobile menu */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger className="p-2">
               <AlignRight className="w-6 h-6" />
             </SheetTrigger>
@@ -107,8 +116,8 @@ export function Header() {
                   Your Journey, Our Expertise.
                 </SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col gap-4">
-                <Menus styles="flex flex-col gap-4" />
+              <div className="flex flex-col gap-4 px-4 ">
+                <Menus styles="flex flex-col gap-4" mobile={true} />
                 <Button asChild variant="main" className="mt-4 cursor-pointer">
                   <Link href="https://wa.me/+971561628595">Book Now</Link>
                 </Button>

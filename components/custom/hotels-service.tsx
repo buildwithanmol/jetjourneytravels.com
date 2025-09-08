@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 export function HotelsService({
   files,
   hotels,
-  view = true
+  view = true,
 }: {
   files: string;
   hotels: string;
-  view?: boolean
+  view?: boolean;
 }) {
   const fileArray = JSON.parse(files) as string[];
 
@@ -24,15 +24,15 @@ export function HotelsService({
       <Marquee gradient={false} speed={40} pauseOnHover>
         <div className="flex items-center">
           {fileArray.map((file, index) => (
-            <div key={index} className="flex items-center justify-center px-8">
-              <div className="h-16 w-32 flex items-center justify-center">
+            <div key={index} className="flex items-center justify-center px-4">
+              <div className="h-20 w-32 flex items-center justify-center">
                 <Image
-                  width={120}
+                  width={200}
                   height={60}
                   src={`/hotels/${file}`}
                   alt={file}
                   className={cn(
-                    "object-contain max-h-12 hover:grayscale transition cursor-pointer",
+                    "object-contain w-full max-h-12 hover:grayscale transition cursor-pointer",
                     file.includes("GlobalHotelAllianceLogo.png") && "ml-10"
                   )}
                 />
@@ -41,24 +41,22 @@ export function HotelsService({
           ))}
         </div>
       </Marquee>
-      <div className={cn( view ? "columns-2 md:columns-3 pt-10 gap-4" : "hidden")}>
-
-      {/* Hotel images gallery */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-10">
-        {JSON.parse(hotels).map((file: string, index: number) => (
-          <div key={index} className="flex">
-            <Zoom>
-              <Image
-                width={500}
-                height={500}
-                src={`/hotels-images/${file}`}
-                alt={file}
-                className="w-full h-full rounded-lg cursor-pointer hover:grayscale transition duration-300 object-cover"
-              />
-            </Zoom>
-          </div>
-        ))}
-      </div>
+        {/* Hotel images gallery */}
+        <div className={cn(view ? "columns-2 md:columns-3  pt-10 gap-4" : "hidden")}>
+          {JSON.parse(hotels).map((file: string, index: number) => (
+            <div key={index} className="flex rounded-xl">
+              <Zoom>
+                <Image
+                  width={500}
+                  height={500}
+                  src={`/hotels-images/${file}`}
+                  alt={file}
+                  className="w-full h-full pb-4 rounded-lg cursor-pointer hover:grayscale transition duration-300 object-cover"
+                />
+              </Zoom>
+            </div>
+          ))}
+        </div>
     </div>
   );
 }

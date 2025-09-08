@@ -54,8 +54,8 @@ export function Footer() {
         </div>
 
         {/* Footer Menu */}
-        <div className="flex flex-col md:items-center">
-          <h3 className="font-semibold text-lg mb-3">Quick Links</h3>
+        <div className="flex flex-col items-start ">
+          <h3 className="font-semibold text-left text-lg mb-3">Quick Links</h3>
           <div className="flex flex-col gap-2 text-md text-gray-600">
             {[
               { name: "Home", href: "/" },
@@ -84,6 +84,7 @@ export function Footer() {
             className="flex flex-col sm:flex-row gap-3"
             onSubmit={handleSubmit}
           >
+            
             <input
               type="email"
               value={email}
