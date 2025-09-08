@@ -129,7 +129,7 @@ export default function Contact() {
           </form>
 
           {/* Contact Info */}
-          <div className="grid grid-cols-2 gap-6 mt-10 text-sm text-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 text-sm text-gray-700">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-primary" />
               <span>P.O.Box 337289, Al Quoz, Dubai</span>

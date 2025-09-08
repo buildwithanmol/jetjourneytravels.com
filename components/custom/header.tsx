@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -13,28 +14,38 @@ import { AlignRight } from "lucide-react";
 import { FaFacebookSquare, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 
-function Menus({ styles, mobile = false, setOpen }: { styles: string, mobile?: boolean, setOpen?: Dispatch<SetStateAction<boolean>> }) {
+function Menus({
+  styles,
+  mobile = false,
+  setOpen,
+}: {
+  styles: string;
+  mobile?: boolean;
+  setOpen?: Dispatch<SetStateAction<boolean>>;
+}) {
+  const links = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
+  ];
+
   return (
     <nav className={styles}>
-      {[
-        { name: "Home", href: "/" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
-        { name: "Portfolio", href: "/portfolio" },
-        { name: "Services", href: "/services" },
-        { name: "Blog", href: "/blog" },
-      ].map((item) => (
+      {links.map((item) => (
         <Link
-        onClick={() => {
-          if (mobile && setOpen) {
-            setOpen(false);
-          }
-        }}
           key={item.name}
           href={item.href}
           className="border-b-2 border-transparent hover:border-secondary transition-colors duration-300"
+          onClick={() => {
+            if (mobile && setOpen) {
+              setOpen(false); // ✅ close sheet on mobile nav click
+            }
+          }}
         >
           {item.name}
         </Link>
@@ -51,7 +62,7 @@ export function Header() {
       {/* Top bar */}
       <div className="hidden md:flex justify-between items-center py-3 px-6 text-sm md:text-base border-b">
         <div className="flex items-center gap-4 text-primary">
-          {/* <Link href="https://www.instagram.com/jetjourneytravels/">
+          <Link href="https://www.instagram.com/jetjourneytravels/">
             <FaSquareInstagram className="w-5 h-5 hover:text-secondary transition" />
           </Link>
           <Link href="https://www.facebook.com/jetjourneytravels/">
@@ -59,7 +70,7 @@ export function Header() {
           </Link>
           <Link href="https://www.linkedin.com/company/jetjourneytravels/">
             <FaLinkedin className="w-5 h-5 hover:text-secondary transition" />
-          </Link> */}
+          </Link>
         </div>
         <div className="flex items-center gap-6">
           <Link
@@ -116,8 +127,13 @@ export function Header() {
                   Your Journey, Our Expertise.
                 </SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col gap-4 px-4 ">
-                <Menus styles="flex flex-col gap-4" mobile={true} />
+              <div className="flex flex-col gap-4 px-4">
+                {/* ✅ Pass setOpen so links close sheet */}
+                <Menus
+                  styles="flex flex-col gap-4"
+                  mobile={true}
+                  setOpen={setOpen}
+                />
                 <Button asChild variant="main" className="mt-4 cursor-pointer">
                   <Link href="https://wa.me/+971561628595">Book Now</Link>
                 </Button>
