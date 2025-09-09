@@ -22,7 +22,9 @@ export function HomeAbout() {
           Welcome to Jet Journey Travels LLC{" "}
         </p>
         <p className="max-w-sm font-mono">
-          With over 15 years of experience, you can depend on JET JOURNEY TRAVELS LLC to provide you with the right advice and products to meet your specific needs.
+          With over 15 years of combined experience, JET JOURNEY TRAVELS LLC is
+          dedicated to making travel effortless, personalized, and designed to
+          meet and exceed each client’s unique needs.
         </p>
         <Button variant={"main"} className="max-w-min">
           <Link href="/about" className="flex items-center gap-2 ">

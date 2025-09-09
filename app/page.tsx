@@ -7,8 +7,6 @@ import fs from "node:fs";
 import { AirwaysMarquee } from "@/components/custom/airways-marquee";
 import { HotelsService } from "@/components/custom/hotels-service";
 import { CorporateTravelSection } from "@/components/custom/corporate-travel-service";
-import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
 
 export default async function Home() {
   const logos_dir = path.join(process.cwd(), "public", "logos");

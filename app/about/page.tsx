@@ -49,10 +49,18 @@ export default function AboutPage() {
         <p className="font-semibold md:text-2xl text-lg mb-2 text-center">
           Your Trusted Travel Partner – Based in Dubai, Serving the World.
         </p>
-        <p className="max-w-2xl text-center md:text-md text-sm font-mono">
-          At JET JOURNEY TRAVELS LLC, we simplify travel so you can enjoy the
-          journey. From quick getaways to corporate tours, we offer seamless air
-          ticketing and hotel booking solutions tailored to your needs.
+        <p className="max-w-2xl md:text-md text-sm font-mono text-justify">
+          Jet Journey Travels LLC is a leading travel agency based in Dubai,
+          offering customized travel solutions for leisure and business
+          travelers worldwide. With expertise in luxury vacations, family trips,
+          corporate travel, and adventure tours, we create personalized
+          itineraries tailored to your needs. <br /> <br /> Our services include flight
+          bookings, hotel reservations, visa assistance, travel insurance, and
+          airport transfers—ensuring a hassle-free travel experience from start
+          to finish. <br /> <br /> Located in Dubai, the world’s travel hub, we leverage local
+          knowledge and global partnerships to provide competitive rates and
+          exclusive deals. <br /> <br /> You can count on us for reliable, efficient, and
+          customer-focused travel planning. Your dream journey starts here.
         </p>
       </div>
 
@@ -60,7 +68,7 @@ export default function AboutPage() {
       <Image
         width={1920}
         height={500}
-        src="/background/hotels.jpg"
+        src="/background/hotel-image-services.jpg"
         alt="hero"
         className="rounded-xl w-full object-contain my-10"
       />
