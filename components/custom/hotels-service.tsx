@@ -18,7 +18,7 @@ export function HotelsService({
 
   return (
     <div>
-      <h1 className="font-semibold text-xl pb-4">Trusted Hotel Partners:</h1>
+      <h1 className="font-semibold text-xl pb-4">Preferred Hotels</h1>
 
       {/* Partner logos marquee */}
       <Marquee gradient={false} speed={40} pauseOnHover>

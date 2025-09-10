@@ -67,7 +67,7 @@ export default function AboutPage() {
       {/* Background Hero Image */}
       <Image
         width={1920}
-        height={500}
+        height={1080}
         src="/background/hotel-image-services.jpg"
         alt="hero"
         className="rounded-xl w-full object-contain my-10"

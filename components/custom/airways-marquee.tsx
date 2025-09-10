@@ -8,7 +8,7 @@ export function AirwaysMarquee({ files }: { files: string }) {
 
   return (
     <div>
-      <h1 className="font-semibold text-xl pb-4">Trusted Airline Partners:</h1>
+      <h1 className="font-semibold text-xl pb-4">Airlines We Work With </h1>
       <Marquee gradient={false} speed={40} pauseOnHover>
         <div className="flex items-center">
           {fileArray.map((file, index) => (
