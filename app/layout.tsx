@@ -8,6 +8,7 @@ import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import { BsWhatsapp } from "react-icons/bs";
 import Link from "next/link";
+import { PhoneIcon } from "lucide-react";
 
 const primaryFont = localFont({
   src: "../public/fonts/typeunion-yoshida-sans-regular.otf",
@@ -44,6 +45,12 @@ export default function RootLayout({
         <NextTopLoader />
         <Link target="_blank" className="bg-green-500 text-white p-4 rounded-full fixed bottom-10 right-10 md:bottom-16 md:right-16" href={"https://wa.me/+971561628595"}>
           <BsWhatsapp
+            className="  cursor-pointer"
+            size={20}
+          />
+        </Link>
+        <Link target="_blank" className="md:hidden bg-primary text-white p-4 rounded-full fixed bottom-24 right-10 md:bottom-16 md:right-16" href={"tel:+971561628595"}>
+          <PhoneIcon
             className="  cursor-pointer"
             size={20}
           />

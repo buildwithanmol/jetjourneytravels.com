@@ -49,11 +49,11 @@ export function GetQuote() {
             Email Us
           </Link>
           <Link
-            href="/contact"
+            href="tel:+971561628595"
             className="flex items-center gap-2 px-4 py-2 hover:bg-gray-200 text-xs rounded-bl-lg"
           >
             <Phone className="h-4 w-4" />
-            Contact Us
+            Call Us
           </Link>
         </div>
       )}
