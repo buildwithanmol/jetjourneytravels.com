@@ -6,6 +6,16 @@ import Image from "next/image";
 import Link from "next/link";
 import fs from "node:fs";
 import path from "node:path";
+import {
+  FaPlaneDeparture,
+  FaHotel,
+  FaPassport,
+  FaShieldAlt,
+  FaCar,
+  FaShuttleVan,
+  FaSuitcaseRolling,
+  FaBriefcase,
+} from "react-icons/fa";
 
 export default async function Services() {
   const logos_dir = path.join(process.cwd(), "public", "logos");
@@ -20,9 +30,60 @@ export default async function Services() {
   const hotels_images_data = fs
     .readdirSync(hotels_images_dir)
     .filter((file) => /\.(png|jpg|jpeg|svg|avif)$/.test(file));
-  const files_data = JSON.stringify(files); 
+  const files_data = JSON.stringify(files);
   const hotels_data_json = JSON.stringify(hotels_data);
   const hotels_images_json = JSON.stringify(hotels_images_data);
+
+  const servicesData = [
+    {
+      icon: <FaSuitcaseRolling />,
+      title: "Customized Travel Packages",
+      description:
+        "Personalized itineraries crafted to fit your interests, schedule, and budget — from luxury escapes to adventurous getaways.",
+    },
+    {
+      icon: <FaPlaneDeparture />,
+      title: "Flight Bookings & Reservations",
+      description:
+        "Access to competitive fares and convenient flight options worldwide, including exclusive airline partnerships.",
+    },
+    {
+      icon: <FaHotel />,
+      title: "Hotel & Accommodation Booking",
+      description:
+        "Handpicked hotels and accommodations to suit every preference, from budget stays to 5-star luxury resorts.",
+    },
+    {
+      icon: <FaPassport />,
+      title: "Visa Assistance & Documentation",
+      description:
+        "Expert support to simplify visa applications and ensure all travel documents are in order.",
+    },
+    {
+      icon: <FaShieldAlt />,
+      title: "Travel Insurance",
+      description:
+        "Comprehensive travel insurance plans to protect you and your loved ones during your trip.",
+    },
+    {
+      icon: <FaShuttleVan />,
+      title: "Airport Transfers & Transportation",
+      description:
+        "Reliable and comfortable transfers to and from airports, hotels, and other destinations.",
+    },
+    {
+      icon: <FaCar />,
+      title: "Car Rental",
+      description:
+        "Flexible car rental services with a wide range of vehicles, giving you the freedom to explore at your own pace.",
+    },
+    {
+      icon: <FaBriefcase />,
+      title: "Corporate Travel Management",
+      description:
+        "Efficient and cost-effective travel solutions tailored for business travelers and corporate clients.",
+    },
+  ];
 
   return (
     <section className="space-y-10 py-12">
@@ -58,6 +119,31 @@ accommodations, or budget-friendly options. Comfort and convenience, wherever yo
       />
 
       <CorporateTravelSection />
+      <div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {servicesData.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 border rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+              >
+                <div className="text-4xl text-blue-600 mb-4">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

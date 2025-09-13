@@ -206,3 +206,9 @@
   border-top: 1px solid #ddd;
   margin: 2em 0;
 }
+
+/* Prevent layout shift when shadcn/radix menu/dialog opens */
+body[data-radix-scroll-lock="true"] {
+  margin-right: 0 !important;
+  overflow: visible !important;
+}

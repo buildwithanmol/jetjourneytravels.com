@@ -28,7 +28,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ✅ Validation
     if (!formData.name || !formData.phone) {
       toast.error("Please fill in all required fields.");
       return;
@@ -93,9 +92,10 @@ export default function Contact() {
               <input
                 type="email"
                 name="email"
+                required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Email"
+                placeholder="Email *"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none"
               />
               <input
@@ -115,7 +115,6 @@ export default function Contact() {
               placeholder="Inquiry / Message"
               rows={4}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none resize-none"
-              required
             />
 
             <Button
@@ -165,9 +164,10 @@ export default function Contact() {
         {/* Right - Image */}
         <div className="relative w-full md:w-1/3 h-64 md:h-auto hidden md:flex">
           <Image
-            src="/portfolio/1 (2).jpg"
+            src="/portfolio/pexels-alexazabache-3214995.jpg"
             alt="Contact Us"
-            fill
+            width={1200}
+            height={1000}
             className="object-cover"
           />
         </div>

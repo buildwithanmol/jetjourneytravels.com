@@ -1,21 +1,17 @@
-import { Phone } from "lucide-react";
-import { Button } from "../ui/button";
-import Link from "next/link";
 import Image from "next/image";
+import { GetQuote } from "./get-quote";
 
 export function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  gap-10 md:gap-5 py-12">
       <div className="relative space-y-3 flex flex-col justify-center">
-        <h1 className="md:text-4xl text-2xl font-bold "> Your Journey, Our Experties. </h1>
+        <h1 className="md:text-4xl text-2xl font-bold "> Your Journey, Our Expertise. </h1>
         <p className="font-mono text-sm md:text-lg md:max-w-sm">
           
           Seamless bookings for flights, hotels, and corporate travel crafted
           with care.
         </p>
-        <Button variant={"main"} className="max-w-min">
-          <Link href={"https://wa.me/+971561628595"} className="flex items-center gap-2 "><Phone /> Get a Quote</Link>
-        </Button>
+        <GetQuote />
         <Image
           src={"/addons/flying-plane.png"}
           width={400}

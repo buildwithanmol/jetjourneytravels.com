@@ -70,7 +70,7 @@ export function HomeServices() {
     },
     {
       icon: <FaCar />,
-      title: "Rent a Car",
+      title: "Car Rental",
       description:
         "Flexible car rental services with a wide range of vehicles, giving you the freedom to explore at your own pace.",
     },

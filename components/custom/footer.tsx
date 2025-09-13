@@ -59,9 +59,10 @@ export function Footer() {
           <div className="flex flex-col gap-2 text-md text-gray-600">
             {[
               { name: "Home", href: "/" },
-              { name: "About", href: "/about" },
-              { name: "Portfolio", href: "/portfolio" },
               { name: "Services", href: "/services" },
+              { name: "Portfolio", href: "/portfolio" },
+              { name: "About", href: "/about" },
+              { name: "Blog", href: "/blog" },
               { name: "Contact", href: "/contact" },
             ].map((link) => (
               <Link
