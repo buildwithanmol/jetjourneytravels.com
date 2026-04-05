@@ -41,7 +41,7 @@ export default function Contact() {
     setLoading(true);
     try {
       await sendMail({
-        email: ["info@jetjourneytravels.com"],
+        email: ["info@jetjourneytravels.com", "bookings@jetjourneytravels.com"],
         subject: "Service Request - Jet Journey Travels LLC",
         body: `
           <p>A new travel service request has been submitted:</p>
@@ -134,6 +134,12 @@ export default function Contact() {
               <span>P.O.Box 337289, Al Quoz, Dubai</span>
             </div>
             <div className="flex items-center gap-2">
+              <Globe2 className="w-4 h-4 text-primary" />
+              <Link href="/" className="hover:underline">
+                jetjourneytravels.com
+              </Link>
+            </div>
+            <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-primary" />
               <a
                 href="https://wa.me/+971561628595"
@@ -141,6 +147,16 @@ export default function Contact() {
                 className="hover:underline"
               >
                 +971 56-1628595
+              </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-primary" />
+              <a
+                href="https://wa.me/+971561628595"
+                target="_blank"
+                className="hover:underline"
+              >
+                +971 50-9295229
               </a>
             </div>
             <div className="flex items-center gap-2">
@@ -153,10 +169,13 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Globe2 className="w-4 h-4 text-primary" />
-              <Link href="/" className="hover:underline">
-                jetjourneytravels.com
-              </Link>
+              <Mail className="w-4 h-4 text-primary" />
+              <a
+                href="mailto:info@jetjourneytravels.com"
+                className="hover:underline"
+              >
+                bookings@jetjourneytravels.com
+              </a>
             </div>
           </div>
         </div>
